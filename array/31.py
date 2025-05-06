@@ -1,20 +1,42 @@
-# Three way partitioning
-
 class Solution:
 	def threeWayPartition(self, arr, a, b):
-	    n = len(arr)
-	    start = 0 # tracks value less than low value of range
-	    end = n - 1 # tracks value greater than high value of range
-	    i = 0 # for traversing the array
-	    while i <= end:
-            # if the current element is less than lower of range
-	        if arr[i] < a:
-	            arr[i], arr[start] = arr[start], arr[i]
-	            i += 1
-	            start += 1
-            # if the current element is greater than higher of range
-	        elif arr[i] > b:
-	            arr[i], arr[end] = arr[end], arr[i]
-	            end -= 1
-	        else:
-	             i += 1
+		"""
+		Partitions the array into three sections:
+		- Elements less than 'a'
+		- Elements between 'a' and 'b' (inclusive)
+		- Elements greater than 'b'
+		
+		Args:
+			arr: Input array to be partitioned
+			a: Lower bound of the range
+			b: Upper bound of the range
+			
+		Returns: None (array is modified in-place)
+		"""
+		n = len(arr)
+		start = 0  # Pointer to track the position for elements less than 'a'
+		end = n - 1  # Pointer to track the position for elements greater than 'b'
+		i = 0  # Current element pointer for array traversal
+		
+		while i <= end:
+			# Case 1: Current element is less than lower bound 'a'
+			if arr[i] < a:
+				# Swap current element with element at 'start' position
+				arr[i], arr[start] = arr[start], arr[i]
+				# Move both pointers forward
+				i += 1
+				start += 1
+				
+			# Case 2: Current element is greater than upper bound 'b'
+			elif arr[i] > b:
+				# Swap current element with element at 'end' position
+				arr[i], arr[end] = arr[end], arr[i]
+				# Only move 'end' pointer backward
+				# We don't increment 'i' because we need to examine the swapped element
+				end -= 1
+				
+			# Case 3: Current element is within the range [a, b]
+			else:
+				# Element is already in the correct position
+				# Just move to the next element
+				i += 1
