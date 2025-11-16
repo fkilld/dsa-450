@@ -1,3 +1,4 @@
+# ENHANCED WITH DETAILED COMMENTS FOR INTERVIEW PREPARATION
 # Replace every element with the least greater element on its right
 
 class Node:

@@ -1,3 +1,4 @@
+# ENHANCED WITH DETAILED COMMENTS FOR INTERVIEW PREPARATION
 # Check whether BST contains Dead End 
 
 def find(root, low, high):
