@@ -1,3 +1,4 @@
+# ENHANCED WITH DETAILED COMMENTS FOR INTERVIEW PREPARATION
 # Flatten BST to sorted list | Increasing order
 
 class Node:
